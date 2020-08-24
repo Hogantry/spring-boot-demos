@@ -1,0 +1,16 @@
+#etrading.jdbc.driver=com.mysql.jdbc.Driver
+#etrading.jdbc.url=jdbc:mysql://172.16.128.32:3306/etrading?useAffectedRows=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+#etrading.jdbc.username=7RFGgtm7Sw0=
+#etrading.jdbc.password=V2NdLTRSXCI=
+#etrading.jdbc.initialPoolSize=5
+#etrading.jdbc.minPoolSize=5
+#etrading.jdbc.maxPoolSize=50
+#etrading.jdbc.acquireIncrement=1
+#etrading.jdbc.maxIdleTime=10000
+#etrading.jdbc.checkoutTimeout=50000
+spring:
+  datasource:
+    url: jdbc:mysql://172.16.128.32:3306/etrading?useAffectedRows=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: 7RFGgtm7Sw0=
+    password: V2NdLTRSXCI=
+    driver-class-name: com.mysql.jdbc.Driver

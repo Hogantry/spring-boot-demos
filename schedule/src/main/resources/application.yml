@@ -1,0 +1,5 @@
+#spring:
+#  session:
+#    cleanup:
+#      cron:
+#        expression: 0/1 * * * * ?

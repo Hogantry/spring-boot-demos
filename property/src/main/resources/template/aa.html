@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="./jquery.min.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            type:'POST',
+            url:'https://activity.ceair.com/api/EcabinCompApi/SendVCode',
+            data:'{"Phone": "18919697837"}',
+            contentType:"application/json;charset=utf-8",
+            success:function(data){
+
+                console.log("success" + data);
+                var err_code=data.err_code;
+                alert(data.msg);
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("error:" +textStatus);
+            }
+        })
+    })
+</script>
+<body>
+
+</body>
+</html>
