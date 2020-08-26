@@ -1,6 +1,7 @@
 package com.dfz.boot.aop.service;
 
 import com.dfz.boot.aop.annotation.Dfz;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +15,8 @@ import org.springframework.stereotype.Service;
 public class HelloService {
 
     @Dfz
-    public void sayHello() {
+    @Cacheable("abc")
+    public void sayHello(String abc) {
         System.out.println("say Hello");
     }
 

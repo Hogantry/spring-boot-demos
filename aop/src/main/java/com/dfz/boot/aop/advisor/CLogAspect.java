@@ -16,19 +16,19 @@ import javax.annotation.Priority;
  * @Version 1.0
  **/
 @Aspect
-//@Component
+@Component
 //@Order(0)
 @Priority(-1)
-public class MLog2Aspect {
+public class CLogAspect {
 
     @Pointcut("@annotation(com.dfz.boot.aop.annotation.Dfz)")
     public void pointCut(){}
 
     @Around("pointCut()")
     public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println("2--------1");
+        System.out.println("C-------- before");
         Object proceed = joinPoint.proceed();
-        System.out.println("2--------2");
+        System.out.println("C--------after");
         return proceed;
     }
 

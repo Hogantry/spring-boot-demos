@@ -6,6 +6,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.Ordered;
+import org.springframework.core.PriorityOrdered;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,20 +19,21 @@ import org.springframework.stereotype.Component;
  **/
 @Aspect
 @Component
-public class LogAspect {
-
-//    @Autowired
-//    BlogProperties blogProperties;
+public class BLogAspect implements PriorityOrdered {
 
     @Pointcut("@annotation(com.dfz.boot.aop.annotation.Dfz)")
     public void pointCut(){}
 
     @Around("pointCut()")
     public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println("1--------1");
+        System.out.println("B-------- before");
         Object proceed = joinPoint.proceed();
-        System.out.println("1--------2");
+        System.out.println("B--------after");
         return proceed;
     }
 
+    @Override
+    public int getOrder() {
+        return -10;
+    }
 }
