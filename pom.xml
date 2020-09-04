@@ -19,6 +19,7 @@
         <module>springapplication-lifecycle</module>
         <module>schedule</module>
         <module>auto-configure-after</module>
+        <module>profile-active</module>
     </modules>
 
     <parent>
