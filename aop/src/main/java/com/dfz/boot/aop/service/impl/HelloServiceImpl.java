@@ -23,7 +23,7 @@ public class HelloServiceImpl implements HelloService {
         System.out.println("say Hello");
     }
 
-    @Autowired
-    private FooService fooService;
+//    @Autowired
+//    private FooService fooService;
 
 }

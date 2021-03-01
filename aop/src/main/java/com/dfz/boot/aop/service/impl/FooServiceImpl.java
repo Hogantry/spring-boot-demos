@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FooServiceImpl implements FooService {
 
-    @Autowired
-    private HelloService helloService;
+//    @Autowired
+//    private HelloService helloService;
 
 }

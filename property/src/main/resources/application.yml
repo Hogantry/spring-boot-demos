@@ -12,6 +12,14 @@ my-propss: #自定义的属性和值
   map-props:
     key1: value1
     key2: value2
+  # 如下，亦可定义map类型，[${name}]会被解析为map的key，且不需要加上双引号。
+  orderType[1]: 10
+  orderType[2]: 10
+  orderType[3]: 10
+  userType[name]: dfz
+  userType[age]: 18
+  userType[address]: hf
+
 cust:
   name:
   - lhr1
