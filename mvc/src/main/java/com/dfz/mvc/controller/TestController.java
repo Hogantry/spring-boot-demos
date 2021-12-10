@@ -20,7 +20,7 @@ public class TestController {
 
     @GetMapping("sleep")
     public String sleep() throws InterruptedException {
-        TimeUnit.MINUTES.sleep(1);
+        TimeUnit.SECONDS.sleep(1);
         return "ok";
     }
 

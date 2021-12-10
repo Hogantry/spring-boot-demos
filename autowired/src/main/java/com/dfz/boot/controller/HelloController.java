@@ -16,7 +16,7 @@ import java.util.List;
 public class HelloController {
 
     /**
-     * @Autowired注解默认先使用类型去IOC，如果匹配多个，再根据字段名字作为 beanName 从匹配出的多个bean中查询，找出唯一的一个注入，否则报错。
+     * @Autowired注解默认先使用类型去IOC查找，如果匹配多个，再根据字段名字作为 beanName 从匹配出的多个bean中查询，找出唯一的一个注入，否则报错。
      */
     @Autowired
     private HelloService helloServiceAImpl;

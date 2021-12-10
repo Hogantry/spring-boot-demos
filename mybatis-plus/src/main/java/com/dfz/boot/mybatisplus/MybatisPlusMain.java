@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * 注意：本内容仅限于中泰证券（上海）资产管理有限公司内部传阅，禁止外泄以及用于其他的商业项目
  */
 @SpringBootApplication
-//@EnableTransactionManagement
+@EnableTransactionManagement
 public class MybatisPlusMain {
 
     public static void main(String[] args) {

@@ -19,14 +19,13 @@ import org.springframework.context.annotation.Import;
  * 此时的Configuration1还未被解析，从而beanDefinitionMap中尚未存在Configuration1的beanDefinition，因此Bean2会因为不满足Condition条件而解析加载失败。之后会继续解析Configuration1和内部的
  * Bean1，并加入到IOC容器中（容器中没有Bean2，其他的都有）。因此对于各个Bean的解析依赖顺序必须了然于胸，否则很容易出现，定义的Bean在IOC容器中找不到的bug。
  *
- * 这里如果将Configuration2与Configuration1的Import顺序颠倒下即可解决问题
- *
- * @see CircleApplication 中的@Bean注释
  *
  * @Author dfz
  * @Date 2019-11-08 16:23
  * @Version 1.0
  **/
+// 如下会导致
+//@Import({Configuration2.class, Configuration1.class})
 @Import({Configuration1.class, Configuration2.class})
 public class Test2Import {
 }
