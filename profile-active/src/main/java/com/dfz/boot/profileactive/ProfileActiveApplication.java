@@ -11,13 +11,13 @@ import java.util.Arrays;
 /**
  * @version V1.0
  * @author: DFZ
- * @description:  1. SpringApplication在运行时，会先初始化Environment(不考虑自己实例化的情况下)，Environment在实例化的过程中，会以此添加
+ * @description:  1. SpringApplication在运行时，会先初始化Environment(不考虑自己实例化的情况下)，Environment在实例化的过程中，会依次添加
  *                ServletConfig、ServletContext、JNDI、SystemProperty、SystemEvn作为属性源，其中前两个只是占位，内部并无数据，会在web
  *                容器完成初始化后重写这两个属性。
  *                2. 后SpringApplication会将自己的defaultProperties属性添加到Environment中，并将Main方法的启动参数作为第一个属性源插入到
  *                Environment中。
  *
- *                在根据spring.profiles.active从Environment中获取值时，会先将SpringApplication的additionalProfiles作为默认值，之后
+ *                再根据spring.profiles.active从Environment中获取值时，会先将SpringApplication的additionalProfiles作为默认值，之后
  *                再从Environment中获取，且是按内部的属性源顺序依次获取，获取到就直接返回，因此值存在位置有优先级顺序。(注意此时ServletConfig、ServletContext
  *                数据源中是没有数据的），得到的Set类型的值就存在Environment的activeProfiles属性中。
  *

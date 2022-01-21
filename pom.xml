@@ -2,8 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.dfz</groupId>
     <artifactId>spring-boot-demos</artifactId>
     <packaging>pom</packaging>
@@ -16,17 +22,14 @@
         <module>lettuce</module>
         <module>mybatis-plus</module>
         <module>mvc</module>
-        <module>springapplication-lifecycle</module>
         <module>schedule</module>
         <module>auto-configure-after</module>
         <module>profile-active</module>
+        <module>unit-test</module>
+        <module>autowired</module>
+        <module>caffeine</module>
+        <module>transaction</module>
     </modules>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -39,6 +42,11 @@
         <mybatis-plus-boot-starter.version>3.3.1</mybatis-plus-boot-starter.version>
         <mysql.version>8.0.20</mysql.version>
         <spring-cloud.version>2.2.2.RELEASE</spring-cloud.version>
+        <!-- 3.0.3 版本太高了，Java版本不兼容？-->
+        <caffeine.version>2.9.2</caffeine.version>
+        <druid.version>1.2.6</druid.version>
+        <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
+        <h2.version>1.4.200</h2.version>
     </properties>
 
     <dependencyManagement>
@@ -71,6 +79,30 @@
                 <version>${commons-pool2.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -82,12 +114,16 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -101,8 +137,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+<!--            mvn versions:set -DnewVersion=1.0-SNAPSHOT-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
-
+<!--    -DskipTests，不执行测试用例，但编译测试用例类,生成相应的class文件至target/test-classes下。-->
+<!--    -Dmaven.test.skip=true，不执行测试用例，也不编译测试用例类。-->
 </project>

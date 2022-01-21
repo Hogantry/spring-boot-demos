@@ -13,7 +13,7 @@ import java.lang.reflect.Proxy;
 /**
  * @version V1.0
  * @author: DFZ
- * @description: 自定义BeanPostProcessor时，前往不要在接口方法中修改返回的对象，一般都会返回代理对象，但前往不要这么做，
+ * @description: 自定义BeanPostProcessor时，千万不要在接口方法中修改返回的对象，一般都会返回代理对象，但千万不要这么做，
  *               这么做导致的后果就是，当项目中存在循环引用时，会出现{@BeanCurrentlyInCreationException}异常，如果
  *               需要实现自定义的代理对象，请实现{@SmartInstantiationAwareBeanPostProcessor}接口，在
  *               getEarlyBeanReference方法中，返回代理对象。

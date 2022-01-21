@@ -4,6 +4,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Priority;
@@ -17,8 +18,8 @@ import javax.annotation.Priority;
  **/
 @Aspect
 @Component
-//@Order(0)
-@Priority(-1)
+@Order(-30)
+//@Priority(-1)
 public class CLogAspect {
 
     @Pointcut("@annotation(com.dfz.boot.aop.annotation.Dfz)")
