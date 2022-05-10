@@ -29,6 +29,7 @@
         <module>autowired</module>
         <module>caffeine</module>
         <module>transaction</module>
+        <module>security</module>
     </modules>
 
     <properties>
@@ -46,7 +47,7 @@
         <caffeine.version>2.9.2</caffeine.version>
         <druid.version>1.2.6</druid.version>
         <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
-        <h2.version>1.4.200</h2.version>
+        <spring-security-jwt.version>1.1.1.RELEASE</spring-security-jwt.version>
     </properties>
 
     <dependencyManagement>
@@ -98,10 +99,11 @@
             </dependency>
 
             <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>${h2.version}</version>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${spring-security-jwt.version}</version>
             </dependency>
+
 
         </dependencies>
     </dependencyManagement>
@@ -120,10 +122,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -149,6 +147,6 @@
         </plugins>
     </build>
 
-<!--    -DskipTests，不执行测试用例，但编译测试用例类,生成相应的class文件至target/test-classes下。-->
+<!--    -DskipTests，不执行测试用例，但编译测试用例类，生成相应的class文件至target/test-classes下。-->
 <!--    -Dmaven.test.skip=true，不执行测试用例，也不编译测试用例类。-->
 </project>

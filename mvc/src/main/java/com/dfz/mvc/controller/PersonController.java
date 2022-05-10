@@ -1,6 +1,8 @@
 package com.dfz.mvc.controller;
 
 import com.dfz.mvc.model.Person;
+import com.dfz.mvc.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,9 @@ import java.time.LocalDate;
 @RestController
 public class PersonController {
 
+    @Autowired
+    private PersonService personService;
+
     @GetMapping("getPerson")
     public Person getPerson() {
         Person person = new Person();
@@ -23,6 +28,11 @@ public class PersonController {
         person.setAddress("shanghai");
         person.setBirthday(LocalDate.now());
         return person;
+    }
+
+    @GetMapping("sayHello")
+    public void sayHello() {
+        personService.sayHello();
     }
 
 }
